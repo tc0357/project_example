@@ -1,0 +1,248 @@
+body {
+    background-image: url("https://i.pinimg.com/originals/23/40/fc/2340fc24618606b02c75e340cf19c995.jpg")
+}
+
+#weather-stats {
+    max-height: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+}
+
+#w-pan {
+    background-image: url("../images/radar.jpg");
+    max-width: 100%;
+}
+
+.page-header {
+    background-color: #333;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    height: 240px;
+    color: #999;
+}
+
+.modal-outer-username {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+#main-container {
+    background: rgba(51, 51, 51, .85);
+}
+
+.modal-inner-username {
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    padding: 25px;
+}
+
+.modal-outer {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-inner {
+    display: none;
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    padding: 25px;
+}
+
+
+.pull-left {
+    margin-left: 25px;
+}
+
+.pull-right {
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+.panel {
+    display: none;
+}
+
+#collapse1 {
+    display:none;
+    margin-top:-30px;
+}
+
+#collapse2 {
+    display:none;
+    margin-top: -30px;
+}
+
+.well {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+#map-panel-def {
+    margin-top: 10px;
+}
+
+.min-height-fix {
+    min-height: 0;
+}
+
+#map { 
+    height:500px;
+}
+
+#incidents-list {
+    margin-top: 5px;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    height: 20px;
+}
+
+#wIcon {
+    height: 165px;
+    width: 165px;
+}
+
+#logout {
+    background-color: rgb(218, 208, 208);
+    color: #333;
+    border-color: #333;
+}
+ 
+#logout:hover {
+    background-color: #333;
+    color: rgb(218, 208, 208);
+    border-radius: 4px;
+    border-color: rgb(218, 208, 208);
+}
+
+#colBtn1, #colBtn2 {
+    background-color: #333;
+    color: rgb(218, 208, 208);
+    border-radius: 4px;
+}
+
+#colBtn1:hover, #colBtn2:hover {
+    background-color: rgb(218, 208, 208);
+    color: #333;
+    border-color: #333;
+}
+
+#logout {
+    display: none;
+}
+
+#temp-display {
+    width: 100%;
+    height: 100%;
+    font-size: 65px;
+}
+
+
+/* styling for news panel content */
+
+a:link {
+    text-decoration: none;
+   
+}
+
+a:visited {
+    text-decoration: none;
+
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+.nat-news-pan, .events-pan, #collapse1, #collapse2 {
+    margin-bottom: -15px;
+}
+
+@media screen and (min-width: 360px) {
+
+    body {
+        padding: 0;
+        background-image: url("https://i.pinimg.com/736x/14/71/98/147198484cba1bf8f1f05c588aa247a1--rainy-dayz-rainy-sunday.jpg");
+        background-repeat: no-repeat;
+        background-position-y: 140px;
+        background-size: cover;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+
+    .right-div {
+        float: left;
+        margin-left: 25px;
+    }
+
+}
+
+@media screen and (min-width: 681px) {
+    
+    .page-header {
+        height: 140px;
+    }
+        .right-div {
+            float: right;
+            margin-right: 25px;
+            margin-left: 25px;
+        }
+    
+    }
+
+@media screen and (min-width: 680px) {
+
+    body {
+        padding: 0;
+        background-image: url("https://geographic.media/wp-content/uploads/us0057.jpg");
+        background-repeat: no-repeat;
+        background-position-y: 140px;
+        background-size: cover;
+        margin-bottom: 10px;
+    }
+   
+}
+
+@media screen and (min-width: 1200px) {
+
+    body {
+        padding: 0;
+        background-image: url("https://picalls.com/wp-content/uploads/2016/02/View-of-the-City-of-New-York.jpg");
+        background-repeat: no-repeat;
+        background-position-y: 140px;
+        /* background-size: 2400px, 1585px; */
+        margin-bottom: 10px;
+    }
+   
+}

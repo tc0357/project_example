@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your Homepage</title>
+
+    <!-- Reset css -->
+    <link rel="reset" href="assets/css/reset.css">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- JQ LINK -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+    <script src="assets/javascript/app.js"></script>
+
+    <!-- LOCAL LINKS -->
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- JS -->
+    <script type="text/javascript" src="assets/javascript/weather-0.js"></script>
+    <script type="text/javascript" src="assets/javascript/events.js"></script>
+    <script type="text/javascript" src="assets/javascript/news.js"></script>
+    <script type="text/javascript" src="assets/javascript/traffic.js"></script>
+    <script type="text/javascript" src="assets/javascript/incidents.js"></script>
+
+</head>
+
+<body>
+    <div class="page-header">
+        <div class="pull-left">
+            <h1 class="headerName"></h1>
+            <p class="headerLocation"></p>
+        </div>
+        <div class="right-div">
+            <h3 class="date"></h3>
+            <p class="time"></p>
+            <button class="button button-default" id="logout">Logout</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="container" id="main-container">
+        <div class="modal-outer-username">
+            <div class="modal-inner-username">
+                <form action="/action_page.php">
+                    <div id="unDiv" class="form-group">
+                        <label id="labelError" for="usernameEmail">Username (E-mail): </label>
+                        <input type="email" class="form-control" id="usernameEmail">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-default usernameSubmit">Submit</button>
+                    <a href="#" class="usernameNeed">Don't have a username? Register here</a>
+                </form>
+            </div>
+        </div>
+        <div class="modal-outer">
+            <div class="modal-inner">
+                <form action="/action_page.php">
+                    <div id="newEmailDiv" class="form-group">
+                        <label id="newEmailLabel" for="modalEmail">E-mail: </label>
+                        <input type="email" class="form-control" id="modalEmail">
+                    </div>
+                    <div id="newNameDiv" class="form-group">
+                        <label id="newNameLabel" for="modalName">Full Name: </label>
+                        <input type="text" class="form-control" id="modalName">
+                    </div>
+                    <div id="newLocDiv" class="form-group">
+                        <label id="newLocLabel" for="modalLoc">Zipcode: </label>
+                        <input type="text" class="form-control" id="modalLoc">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-default modalBtn">Submit</button>
+                </form>
+            </div>
+        </div>
+        <!-- map div -->
+        <div class="row">
+            <div class="col-md-12 min-height-fix">
+                <div class="panel panel-default" id="map-panel-def">
+                    <div class="panel-heading" id="map-panel-heading">
+                        <h3 class="panel-title" id="map-panel-title">Traffic information hidden, click to show</h3>
+                    </div>
+                    <div class="panel-body" id="map-div" data="hide" style="display:none">
+
+                        <div id="map"></div>
+                        <div id="incidents">
+                            <ul id="incidents-list"><i class="glyphicon glyphicon-road"></i><strong> Traffic Incidents:</strong></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- lower row -->
+        <div class="row">
+            <div class="col-md-4 min-height-fix">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong>
+                                <i class="fa fa-newspaper-o"></i> Trending News</strong>
+                        </h3>
+                    </div>
+                    <div class="panel-body nat-news-pan">
+                    </div>
+                    <div class="panel-body" id="collapse2">
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" id="colBtn2" data-exp="no">Expand</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 min-height-fix">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong>
+                                <i class="glyphicon glyphicon-calendar"></i> Events near you</strong>
+                        </h3>
+                    </div>
+                    <div class="panel-body events-pan">
+                    </div>
+                    <div class="panel-body" id="collapse1">
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" id="colBtn1" data-exp="no">Expand</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 min-height-fix">
+                <div class="panel panel-default" id="w-pan">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong id="weather-title">
+                                <i class="glyphicon glyphicon-cloud"></i>
+                            </strong>
+                        </h3>
+                    </div>
+                    <div class="panel-body" id="weather-stats">
+
+                        <div class="row">
+                            <div class="col-xs-6" id="w-icon"></div>
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-5" id="w-aside">
+                                <div id="w-article">
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div id="col-sm-7" id="w-main"></div>
+                            <div id="col-sm-4" id="w-lower"></div>
+                        </div>
+
+                        <div class="well well-lg">
+                            <div class="row">
+                                <div class="col-sm-12" id="w-speed"></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6" id="hum"></div>
+                                <div class="col-sm-6" id="hpa"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong id="bookmarks-title">
+                                <i class='fa fa-bookmark' aria-hidden='true'></i> Your Bookmarks
+                            </strong>
+                        </h3>
+                    </div>
+                    <div class="panel-body" style="max-height:350px; overflow-y: scroll;">
+                        <div class="row">
+                            <div class="col-sm-12" id="bookmarks"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMhlhxQP_IoFZkFWSRZw96yZMLiUIkDmU&callback=app.initMap"></script>
+
+</body>
+
+</html>
